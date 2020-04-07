@@ -13,7 +13,7 @@
   - Install Django and DjangoRestFramework:
     ```
         pip install django
-		pip install djangorestframework
+	pip install djangorestframework
     ```
   - Make apps (for class based views)
     ```
@@ -26,9 +26,9 @@
  - Add 'rest_framework' and both apps to settings.py as:
     ```
        INSTALLED_APPS = [
-				...
-				'rest_framework',
-				'demo',
+		...
+		'rest_framework',
+		'person_django_rest_swagger',
 	   ]
     ```
  - Make a model
@@ -74,15 +74,16 @@
  -  Integrating Django Rest Swagger:
 			In order to integrate django-rest-swagger, first install it through pip as:
     ```
-      pip install django-rest-swagger==2.2.1
-	  pip3 install packaging     
-	  ```
+      	pip install django-rest-swagger==2.2.1
+	pip3 install packaging     
+     ```
   - Add it into the demo/settings.py as:
 	```	
-    INSTALLED_APPS = [
-				...
-				'rest_framework_swagger',
-			]
+	    INSTALLED_APPS = [
+		...
+		'rest_framework_swagger',
+	    ]
+	```	
     # Parser classes to help swagger, default ll be JSONParser only.
 	REST_FRAMEWORK = {
 		# Parser classes priority-wise for Swagger
