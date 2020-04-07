@@ -113,4 +113,4 @@
 	The line with {% load staticfiles %} (line 1) should be {% load static %}. You can edit it manually.
 
    ### Output like this :
-   ![N|Solid](E:\OnlyForPython\django_rest_curd_app\swagger-ui.PNG)
+   ![N|Solid](https://github.com/rahulmoundekar/django_rest_curd_app_swagger/blob/master/swagger-ui.PNG)
