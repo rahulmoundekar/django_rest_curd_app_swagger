@@ -1,0 +1,80 @@
+django rest swagger steps :
+
+Project Setup
+
+	1}Making the project 
+		mkdir django-rest-swagger
+			cd django-rest-swagger	
+	2}Install Django and DjangoRestFramework:
+		pip install django
+		pip install djangorestframework
+	3}Make apps (for class based views)	
+		django-admin startapp demo
+	4}Integrating Django Rest 
+		pip install djangorestframework
+	5} Add 'rest_framework' and both apps to settings.py as:
+			INSTALLED_APPS = [
+				...
+				'rest_framework',
+				'demo',
+			]
+		
+	6} Make a model
+	7} Make a serializer
+	8} Make a view	
+	
+	9} In order to run the it apply migrations to make tables in db against models and runserver to test:
+		python manage.py makemigrations
+		python manage.py migrate
+		python manage.py runserver
+	10} Integrating Django Rest Swagger:
+			In order to integrate django-rest-swagger, first install it through pip as:
+
+			pip install django-rest-swagger==2.2.1
+			pip3 install packaging
+	11} Add it into the demo/settings.py as:
+			INSTALLED_APPS = [
+				...
+				'rest_framework_swagger',
+			]
+
+			# Parser classes to help swagger, default ll be JSONParser only.
+
+			REST_FRAMEWORK = {
+				# Parser classes priority-wise for Swagger
+				'DEFAULT_PARSER_CLASSES': [
+					'rest_framework.parsers.FormParser',
+					'rest_framework.parsers.MultiPartParser',
+					'rest_framework.parsers.JSONParser',
+				],
+				'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+			}
+		
+		12} Make swagger schema view in demo/urls.py and assign it a url as :
+			rom rest_framework_swagger.views import get_swagger_view
+			schema_view = get_swagger_view(title='Demo Swagger API')
+
+
+			urlpatterns = [
+				...
+				url(r'^swagger/', schema_view),
+			]
+		
+		13} python manage.py runserver
+		Your swagger should run at: http://127.0.0.1:8000/swagger/
+		14}if u will get 
+			django_rest_swagger - 'staticfiles' is not a registered tag library. Must be one of:
+			
+			It's a bug in the developer's code, in site-packages/rest_framework_swagger/templates/rest_framework_swagger/index.html
+
+			The line with {% load staticfiles %} (line 2) should be {% load static %}. You can edit it manually
+			
+			
+		
+		
+		
+		
+		
+		
+		
+		
